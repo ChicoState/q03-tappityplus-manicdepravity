@@ -199,3 +199,42 @@ TEST(tappityTest, lengthSizeNotSame)
     ASSERT_FALSE(length == zeroDifference);
 
 }
+
+//Happy Test for matching special characters
+TEST(tappityTest, specialMatch)
+{
+    // Test special character acuracy
+    tappity specialMatch("$$$");
+    specialMatch.entry("$$$$");
+    int threeFourths = 75;
+    ASSERT_EQ(specialMatch.accuracy(), threeFourths);
+
+}
+//Sad Test Length Difference for special characters
+TEST(tappityTest, specialNotMatch)
+{
+    // Test match will fail becuase of space
+    tappity specialNotMatch(" $$$");
+    specialNotMatch.entry("$$$");
+    ASSERT_FALSE(specialNotMatch.length_difference() == 0);
+}
+
+//Happy Test Accuary
+TEST(tappityTest, accuracyCheck)
+{
+    tappity accuracyCHeck("1234567891");
+    accuracyCHeck.entry("123456789");
+    ASSERT_EQ(accuracyCHeck.accuracy(), 90);
+}
+
+//Sad Test Accuracy with Case Size factors
+TEST(tappityTest, accuracyCheckSize)
+{
+    tappity accuracyCHeckSize("one two  I");
+    accuracyCHeckSize.entry("one two i");
+    // Test it is same sentence size is same
+    ASSERT_TRUE(accuracyCHeckSize.length_difference() == 0);
+    // Test though same sentence accuracy is effected by case size factors
+    ASSERT_FALSE(accuracyCHeckSize.accuracy() == 90);
+
+}
