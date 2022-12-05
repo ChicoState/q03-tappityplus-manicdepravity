@@ -33,7 +33,7 @@ TEST(tappityTest, constructWrongLength)
     // Test that the constructor is of actual lenght four by proving it will fail when not equated properly
     tappity constructWrongLength("Test");
     std::string testIt = "TestWrongLenth";
-    ASSERT_EQ(constructWrongLength.length_difference(), testIt.length());
+    ASSERT_FALSE(constructWrongLength.length_difference() == testIt.length());
 }
 
 //Happy Test Entry
@@ -52,7 +52,7 @@ TEST(tappityTest, entryTestSad)
     // Test length will fail for equality is the arrays are of differnet size
     tappity entryTestSad("This test will fail");
     entryTestSad.entry("This test will Fail");
-    ASSERT_EQ(entryTestSad.accuracy(), 100);
+    ASSERT_FALSE(entryTestSad.accuracy() == 100);
 }
 
 
@@ -78,7 +78,7 @@ TEST(tappityTest, blanks_do_not_match)
     int fullMatch = 100;
 
 
-    ASSERT_EQ(accScore , fullMatch);
+    ASSERT_FALSE(accScore == fullMatch);
 }
 
 //Happy Test Accuracy Count Blanks Only
@@ -104,7 +104,7 @@ TEST(tappityTest, countBlanks_noMatch)
     int accScore = countBlanks_noMatch.accuracy();
     int Match = 100;
 
-    ASSERT_EQ(accScore , Match);
+    ASSERT_FALSE(accScore == Match);
 }
 
 //Happy Test Numbers
@@ -130,7 +130,7 @@ TEST(tappityTest, noMatchNumbers)
     int accScore = noMatchNumbers.accuracy();
     int fullMatch = 100;
 
-    ASSERT_EQ(accScore , fullMatch);
+    ASSERT_FALSE(accScore == fullMatch);
 }
 
 //Happy Test Empty is can match
@@ -169,7 +169,7 @@ TEST(tappityTest, caseSizeSameCheck)
     int accScore = caseSizeSameCheck.accuracy();
     int fullMatch = 100;
 
-    ASSERT_EQ(accScore, fullMatch);
+    ASSERT_FALSE(accScore == fullMatch);
 }
 
 //Happy Test length DIfference
@@ -196,6 +196,6 @@ TEST(tappityTest, lengthSizeNotSame)
     int length = lengthSizeNotSame.length_difference();
 
     int zeroDifference = 0;
-    ASSERT_EQ(length, zeroDifference);
+    ASSERT_FALSE(length == zeroDifference);
 
 }
